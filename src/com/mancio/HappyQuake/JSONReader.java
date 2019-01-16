@@ -16,8 +16,8 @@ import org.json.simple.*;
  * @author Merlin Unterfinger
  * @version 1.2
  */
-public class JSONReader
-{
+public class JSONReader {
+
     //// initialise instance variables
     private JSONObject jsonObjects;
     private URLReader urlreader;
