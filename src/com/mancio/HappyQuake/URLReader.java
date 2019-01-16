@@ -4,14 +4,14 @@ package com.mancio.HappyQuake;
 import java.net.*;
 import java.io.*;
 
-public class Connect {
+public class URLReader {
    // instance variables
    String url;
 
    /**
     * Constructor for objects of class URLReader
     */
-   public Connect(String url) {
+   public URLReader(String url) {
        // initialise instance variables
        this.url = url;
    }
