@@ -117,7 +117,7 @@ public class JSONReader {
 
         for (int i = 0; i < num; i++){
 
-            System.out.println(eqg.getEQ(i).getTitle() + " || " + eqg.getEQ(i).getDist());
+            System.out.println(eqg.getEQ(i).getTitle() + " || " + (int) eqg.getEQ(i).getDist());
         }
 
     }
