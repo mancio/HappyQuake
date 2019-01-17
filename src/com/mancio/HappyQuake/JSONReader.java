@@ -1,21 +1,10 @@
 package com.mancio.HappyQuake;
 
-import java.util.*;
-import java.io.*;
+
 import org.json.simple.parser.*;
 import org.json.simple.*;
 
-/**
- * JSONReader is partly based on code from Kai-Floarian Richter. It takes an URLreader as input
- * for the constructor. By its construction, the read() method of the URLReader gets called.
- * The resulting String from the method call gets parsed with JSONParser and the content is
- * assigned to the jsonObjects variable. The read() method is used to convert the earthquakes
- * from JSONObjects into instances of type "Earthquake" and store them in a instance of the
- * EarthquakeGroup class.
- *
- * @author Merlin Unterfinger
- * @version 1.2
- */
+
 public class JSONReader {
 
     //// initialise instance variables
