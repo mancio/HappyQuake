@@ -21,6 +21,8 @@ public class JSONReader {
     //// initialise instance variables
     private JSONObject jsonObjects;
     private URLReader urlreader;
+    private double startlat;
+    private double startlon;
 
     /**
      * Constructor for objects of class JSONReader.
@@ -29,7 +31,7 @@ public class JSONReader {
      *
      * @param urlreader  An object of type URLReader, which is bound to an URL.
      */
-    public JSONReader(URLReader urlreader)
+    public JSONReader(URLReader urlreader, double startlat, double startlon)
     {
         this.urlreader = urlreader;
         String jsonFileContent = this.urlreader.read();
@@ -45,6 +47,9 @@ public class JSONReader {
             System.out.println("Error at position: " + pe.getPosition());
             System.out.println(pe);
         }
+
+        this.startlat = startlat;
+        this.startlon = startlon;
     }
 
     /**
@@ -69,21 +74,21 @@ public class JSONReader {
                 JSONArray coordinates = (JSONArray) geometry.get("coordinates");
                 // Extract relevant text properties
                 String title = properties.get("title").toString();
-                String place = properties.get("place").toString();
-                String url = properties.get("url").toString();
+                //String place = properties.get("place").toString();
+                //String url = properties.get("url").toString();
                 // Extract time (milliseconds from 1970) and convert into datetime
-                long millis = Long.parseLong(properties.get("time").toString());
-                Date date = new Date(millis);
-                String datetime = date.toString();
+                //long millis = Long.parseLong(properties.get("time").toString());
+                //Date date = new Date(millis);
+                //String datetime = date.toString();
                 // Extract numeric values
-                double mag = Double.parseDouble(properties.get("mag").toString());
+                //double mag = Double.parseDouble(properties.get("mag").toString());
                 double lon = Double.parseDouble(coordinates.get(0).toString());
                 double lat = Double.parseDouble(coordinates.get(1).toString());
                 // Create object of type "Earthquake"
-                Earthquake eq = new Earthquake(title, place, url, datetime, lon, lat, mag);
+                Earthquake eq = new Earthquake(title, lon, lat, Calc.distFrom(startlat, startlon, lat, lon));
                 eqg.add(eq);
-                eq.print();
-                System.out.println(date.toString());
+                //eq.print();
+                //System.out.println(date.toString());
             } catch (NullPointerException npe) {
                 System.out.println("Incomplete data record, this particular earthquake is dismissed.");
                 System.out.println(npe);
@@ -92,12 +97,30 @@ public class JSONReader {
         }
 
         // Print number of fetched earthquakes
-        System.out.println("------------------------------------------\n"+
+        /*System.out.println("------------------------------------------\n"+
                 eqg.getAl().size()+" earthquakes fetched from:\n" + this.urlreader.getUrl() +
-                "\n------------------------------------------");
+                "\n------------------------------------------");*/
 
         // return the EarthquakeGroup
         return(eqg);
     }
+
+    public EarthquakeGroup order(EarthquakeGroup eqg){
+
+        eqg.order();
+
+        return eqg;
+
+    }
+
+    public void print(EarthquakeGroup eqg, int num){
+
+        for (int i = 0; i < num; i++){
+
+            System.out.println(eqg.getEQ(i).getTitle() + " || " + eqg.getEQ(i).getDist());
+        }
+
+    }
+
 }
 

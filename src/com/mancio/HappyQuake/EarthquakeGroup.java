@@ -1,6 +1,8 @@
 package com.mancio.HappyQuake;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * The class EarthquakeGroup represents a group of earthquakes. An instance
@@ -66,7 +68,7 @@ public class EarthquakeGroup
      * @param  limit    (double), the split value
      * @return eqgf     An object of type EarthquakeGroup containing the filtered earthquakes.
      */
-    public EarthquakeGroup filterEqMag(String op, double limit)
+    /*public EarthquakeGroup filterEqMag(String op, double limit)
     {
         // Filter the Earthquakes
         EarthquakeGroup eqgf= new EarthquakeGroup();
@@ -86,5 +88,12 @@ public class EarthquakeGroup
             System.out.println("Invalid arithmetic opertaor input.");
         }
         return(eqgf);
+    }*/
+
+    public void order(){
+
+        Collections.sort(this.al, new distSorter());
     }
+
+
 }

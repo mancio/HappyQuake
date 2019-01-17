@@ -12,26 +12,28 @@ public class Earthquake
 {
     // instance variables
     private String title;
-    private String place;
-    private String url;
+    //private String place;
+    //private String url;
     private double lon;
     private double lat;
-    private double mag;
-    private String datetime;
+    //private double mag;
+    //private String datetime;
+    private int dist;
 
     /**
      * Constructor for objects of class Earthquake
      */
-    public Earthquake(String title, String place, String url, String datetime, double lon, double lat, double mag)
+    public Earthquake(String title, double lon, double lat, int dist)
     {
         // initialise instance variables
         this.title = title;
-        this.place = place;
-        this.url = url;
+        //this.place = place;
+        //this.url = url;
         this.lon = lon;
         this.lat = lat;
-        this.mag = mag;
-        this.datetime = datetime;
+        //this.mag = mag;
+        //this.datetime = datetime;
+        this.dist = dist;
     }
 
     /**
@@ -43,8 +45,14 @@ public class Earthquake
     public void print()
     {
         // print some properties
-        System.out.println(this.title);
-        System.out.println("Coords - lon: " + this.lon + " lat:" + this.lat);
+        System.out.println(this.title + " || " + this.dist);
+        //System.out.println("Coords - lon: " + this.lon + " lat:" + this.lat);
+    }
+
+    public double getDist(){
+
+        return(this.dist);
+
     }
 
     /**
@@ -52,30 +60,30 @@ public class Earthquake
      *
      * @return     lon
      */
-    public double getLon()
+    /*public double getLon()
     {
         return(this.lon);
-    }
+    }*/
 
     /**
      * Get latitude
      *
      * @return     lat
      */
-    public double getLat()
+    /*public double getLat()
     {
         return(this.lat);
-    }
+    }*/
 
     /**
      * Get magnitude
      *
      * @return     mag
      */
-    public double getMag()
+    /*public double getMag()
     {
         return(this.mag);
-    }
+    }*/
 
     /**
      * Get title
@@ -92,29 +100,31 @@ public class Earthquake
      *
      * @return     datetime
      */
-    public String getDateTime()
+    /*public String getDateTime()
     {
         return(this.datetime);
-    }
+    }*/
 
     /**
      * Get place
      *
      * @return     place
      */
-    public String getPlace()
+    /*public String getPlace()
     {
         return(this.place);
-    }
+    }*/
 
     /**
      * Get url
      *
      * @return     url
      */
-    public String getURL()
+    /*public String getURL()
     {
         return(this.url);
-    }
+    }*/
+
+
 
 }

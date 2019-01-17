@@ -2,7 +2,7 @@ package com.mancio.HappyQuake;
 
 abstract class Calc {
 
-    int distFrom(double lat1, double lng1, double lat2, double lng2) {
+    static int distFrom(double lat1, double lng1, double lat2, double lng2) {
         double earthRadius = 6371; //kilometers
         double dLat = Math.toRadians(lat2-lat1);
         double dLng = Math.toRadians(lng2-lng1);
