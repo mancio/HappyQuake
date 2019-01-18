@@ -9,9 +9,9 @@ public class distSorter implements Comparator<Earthquake> {
 
     /**
      * Used to compare the distance between cities
-     * @param one
-     * @param another
-     * @return
+     * @param one Earthquake class object of the first city to compare
+     * @param another Earthquake class object of the second city to compare
+     * @return -1, 1 or 0 if the first city is <, > or = to the second
      */
     public int compare(Earthquake one, Earthquake another){
         int returnVal = 0;
