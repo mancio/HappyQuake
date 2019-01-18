@@ -1,11 +1,17 @@
 package com.mancio.HappyQuake;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Scanner;
 
+/**
+ *  Main class of the Java app
+ */
 public class Main {
 
+    /**
+     *Java Main class
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
 
@@ -29,19 +35,12 @@ public class Main {
 
         // establish connection to the GEO link and download data
         URLReader c = new URLReader("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson");
-        //String allj = c.read();
-        //System.out.println(allj);
         JSONReader jr = new JSONReader(c, slat, slon);
 
 
 
         jr.print(jr.order(jr.read()), 10);
 
-
-
-
-
-        //System.out.println(Calc.distFrom(44.494888,11.342616,41.890560,12.494270));
 
 
 
