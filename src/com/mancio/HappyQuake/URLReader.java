@@ -4,6 +4,10 @@ package com.mancio.HappyQuake;
 import java.net.*;
 import java.io.*;
 
+/**
+ * Class with method to read the url and download the GEOJason
+ * to send to the parser
+ */
 public class URLReader {
    // instance variables
    String url;
@@ -16,19 +20,12 @@ public class URLReader {
        this.url = url;
    }
 
-   /**
-    * This method returns the URL.
-    *
-    * @return     url A String with the URL bound to the instance.
-    */
-   public String getUrl() {
-       return(this.url);
-   }
+
 
    /**
     * This method reads the content found at the URL.
     *
-    * @return     jsonFileContent A String with content of website (read-in JSON).
+    * @return jsonFileContent A String with content of website (read-in JSON).
     */
    public String read() {
        String jsonFileContent = "";

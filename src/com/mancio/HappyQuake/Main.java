@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
 
     /**
-     *Java Main class
+     * Java Main class
      *
      * @param args
      */
