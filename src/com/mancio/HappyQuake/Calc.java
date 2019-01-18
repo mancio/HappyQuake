@@ -1,7 +1,19 @@
 package com.mancio.HappyQuake;
 
+/**
+ * Class with math coordinated calculation staff
+ */
 abstract class Calc {
 
+    /**
+     * Calculate the distance between coordinates of two cities
+     *
+     * @param lat1 latitude of the first city
+     * @param lng1 longitude of the first city
+     * @param lat2 latitude of the second city
+     * @param lng2 longitude of the second city
+     * @return distance between two cities
+     */
     static int distFrom(double lat1, double lng1, double lat2, double lng2) {
         double earthRadius = 6371; //kilometers
         double dLat = Math.toRadians(lat2-lat1);
