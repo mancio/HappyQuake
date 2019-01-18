@@ -1,6 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="HappyQuake">
-    <output-path>$PROJECT_DIR$/out/artifacts/HappyQuake</output-path>
-    <root id="archive" name="HappyQuake.jar" />
-  </artifact>
-</component>
