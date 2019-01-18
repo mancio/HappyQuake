@@ -13,19 +13,22 @@ public class JSONReader {
     private double startlat;
     private double startlon;
 
+
     /**
      * Constructor for objects of class JSONReader.
      * Reads in the the content (one long string) of the passed URLReader
      * and stores its content in jsonObjects.
      *
-     * @param urlreader  An object of type URLReader, which is bound to an URL.
+     * @param urlreader the link with GeoJason data
+     * @param startlat latitude in input
+     * @param startlon longitude in input
      */
     public JSONReader(URLReader urlreader, double startlat, double startlon)
     {
         this.urlreader = urlreader;
         String jsonFileContent = this.urlreader.read();
         // now that we've stored the content of the JSON file in a single String, we parse it.
-        // this turns the original JSON specification into an iteratable Java data structure
+        // this turns the original JSON specification into an iterable Java data structure
         // consisting of JSONObject (similar to ArrayList) and JSONArray elements
         JSONParser parser = new JSONParser();
         try {
@@ -61,23 +64,16 @@ public class JSONReader {
                 JSONObject geometry = (JSONObject) object.get("geometry");
                 // coordinates are an array with two entries: longitude first, then latitude
                 JSONArray coordinates = (JSONArray) geometry.get("coordinates");
-                // Extract relevant text properties
+                // extract relevant text properties
                 String title = properties.get("title").toString();
-                //String place = properties.get("place").toString();
-                //String url = properties.get("url").toString();
-                // Extract time (milliseconds from 1970) and convert into datetime
-                //long millis = Long.parseLong(properties.get("time").toString());
-                //Date date = new Date(millis);
-                //String datetime = date.toString();
-                // Extract numeric values
-                //double mag = Double.parseDouble(properties.get("mag").toString());
+                // get the latitude
                 double lon = Double.parseDouble(coordinates.get(0).toString());
+                // get the longitude
                 double lat = Double.parseDouble(coordinates.get(1).toString());
-                // Create object of type "Earthquake"
+                // create object of type "Earthquake"
                 Earthquake eq = new Earthquake(title, lon, lat, Calc.distFrom(startlat, startlon, lat, lon));
                 eqg.add(eq);
-                //eq.print();
-                //System.out.println(date.toString());
+
             } catch (NullPointerException npe) {
                 System.out.println("Incomplete data record, this particular earthquake is dismissed.");
                 System.out.println(npe);
@@ -85,15 +81,15 @@ public class JSONReader {
 
         }
 
-        // Print number of fetched earthquakes
-        /*System.out.println("------------------------------------------\n"+
-                eqg.getAl().size()+" earthquakes fetched from:\n" + this.urlreader.getUrl() +
-                "\n------------------------------------------");*/
-
-        // return the EarthquakeGroup
         return(eqg);
     }
 
+    /**
+     * Order the Earthquakes from the most far to the nearest
+     *
+     * @param eqg EarthquakeGroup
+     * @return eqg EarthquakeGroup reordered
+     */
     public EarthquakeGroup order(EarthquakeGroup eqg){
 
         eqg.order();
@@ -102,6 +98,14 @@ public class JSONReader {
 
     }
 
+    /**
+     * print the title and distance in km
+     * ex. title || distance (km)
+     * M 4.5 - 7km E of Ravenna, Italy || 179
+     *
+     * @param eqg EarthquakeGroup object
+     * @param num number of earthquakes to print
+     */
     public void print(EarthquakeGroup eqg, int num){
 
         for (int i = 0; i < num; i++){
