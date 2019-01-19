@@ -30,6 +30,13 @@ abstract class Calc {
     }
 
 
+    /**
+     * check if the input cordinate number is valid
+     *
+     * @param s Scanner object
+     * @param type "lat" check latitude, "lon" check longitude
+     * @return a double number of latitude or longitude, or -999 if input is wrong
+     */
     static double validcord(Scanner s, String type){
 
         double cord = -999;
