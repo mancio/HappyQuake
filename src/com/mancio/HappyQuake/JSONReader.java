@@ -9,6 +9,7 @@ public class JSONReader {
 
     //// initialise instance variables
     private JSONObject jsonObjects;
+    private JSONArray features;
     private URLReader urlreader;
     private double startlat;
     private double startlon;
@@ -26,6 +27,9 @@ public class JSONReader {
     public JSONReader(URLReader urlreader, double startlat, double startlon)
     {
         this.urlreader = urlreader;
+        this.startlat = startlat;
+        this.startlon = startlon;
+
         String jsonFileContent = this.urlreader.read();
         // now that we've stored the content of the JSON file in a single String, we parse it.
         // this turns the original JSON specification into an iterable Java data structure
@@ -38,11 +42,12 @@ public class JSONReader {
         catch(ParseException pe) {
             System.out.println("Error at position: " + pe.getPosition());
             System.out.println(pe);
+            System.out.println("unable to parse the file Jason corrupted");
+            System.exit(0);
         }
-
-        this.startlat = startlat;
-        this.startlon = startlon;
     }
+
+
 
     /**
      * The read() method is used to convert the earthquakes
@@ -53,7 +58,7 @@ public class JSONReader {
      */
     public EarthquakeGroup read() {
         EarthquakeGroup eqg = new EarthquakeGroup();
-        JSONArray features = (JSONArray) jsonObjects.get("features");
+        features = (JSONArray) jsonObjects.get("features");
         for (int i = 0; i < features.size(); i++) {
             try {
                 // get the current feature

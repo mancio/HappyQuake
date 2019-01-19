@@ -44,6 +44,8 @@ public class URLReader {
        }
        catch (Exception e) {
            System.out.println(e);
+           System.out.println("Unable to connect please check your internet connection");
+           System.exit(0);
        }
        // Return the string (ONE) containing the JSON file content
        return(jsonFileContent);

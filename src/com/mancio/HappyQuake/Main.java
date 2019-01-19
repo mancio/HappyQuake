@@ -19,11 +19,23 @@ public class Main {
 
         System.out.println("Please insert latitude of a city");
 
-        double slat = s.nextDouble();
+        double ok;
+
+        do{
+            ok = Calc.validcord(s,"lat");
+            s.nextLine();
+        }while (ok==-999);
+
+        double slat = ok;
 
         System.out.println("Please insert longitude of a city");
 
-        double slon = s.nextDouble();
+        do{
+            ok = Calc.validcord(s,"lon");
+            s.nextLine();
+        }while (ok==-999);
+
+        double slon = ok;
 
         s.close();
 
@@ -35,14 +47,18 @@ public class Main {
 
         // establish connection to the GEO link and download data
         URLReader c = new URLReader("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson");
-        JSONReader jr = new JSONReader(c, slat, slon);
 
+        JSONReader jr = new JSONReader(c, slat, slon);
 
 
         jr.print(jr.order(jr.read()), 10);
 
 
 
-
     }
+
+
+
+
+
 }

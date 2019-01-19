@@ -1,5 +1,7 @@
 package com.mancio.HappyQuake;
 
+import java.util.Scanner;
+
 /**
  * Class with math coordinated calculation staff
  */
@@ -25,6 +27,37 @@ abstract class Calc {
         int dist = (int) (earthRadius * c);
 
         return dist;
+    }
+
+
+    static double validcord(Scanner s, String type){
+
+        double cord = -999;
+        boolean isdob = s.hasNextDouble();
+
+        if(!isdob) {
+            System.out.println("is not a valid number please retry");
+            //return -999;
+        }else {
+            cord = s.nextDouble();
+            if(type.equals("lat")){
+                if(cord<-90.0d || cord>90.0d){
+                    System.out.println("insert a number between -90 and 90 degrees");
+                    cord = -999;
+                }
+            }else if(type.equals("lon")){
+                if(cord<-180.0d || cord>180.0d){
+                    System.out.println("insert a number between -180 and 180 degrees");
+                    cord = -999;
+                }
+            }else {
+                System.out.println("unable to understand coordinates please check input");
+                System.exit(0);
+            }
+
+        }
+
+        return cord;
     }
 
 }
