@@ -31,7 +31,7 @@ abstract class Calc {
 
 
     /**
-     * check if the input cordinate number is valid
+     * check if the input coordinates number is valid
      *
      * @param s Scanner object
      * @param type "lat" check latitude, "lon" check longitude
