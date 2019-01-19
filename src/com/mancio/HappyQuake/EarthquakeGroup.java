@@ -58,6 +58,8 @@ public class EarthquakeGroup
     public void order(){
 
         Collections.sort(this.al, new distSorter());
+
+        // TODO remove double Earthquake from group
     }
 
 
