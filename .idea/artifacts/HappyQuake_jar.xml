@@ -5,7 +5,6 @@
       <element id="module-output" name="HappyQuake" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/clerezza/ext/org.json.simple/0.4/org.json.simple-0.4.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/googlecode/json-simple/json-simple/1.1/json-simple-1.1.jar" path-in-jar="/" />
-      <element id="library" level="project" name="org.apache.clerezza.ext:org.json.simple:0.4" />
     </root>
   </artifact>
 </component>
