@@ -17,6 +17,8 @@ public class Earthquake
     private int dist;
 
 
+
+
     /**
      * Constructor of the class Earthquake with the GeoJason parsed variables
      *
@@ -34,6 +36,13 @@ public class Earthquake
         this.dist = dist;
     }
 
+    public double getLon() {
+        return lon;
+    }
+
+    public double getLat() {
+        return lat;
+    }
 
     /**
      * Get the distance between two cities in Km
@@ -45,6 +54,8 @@ public class Earthquake
         return(this.dist);
 
     }
+
+
 
 
 

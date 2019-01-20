@@ -59,8 +59,40 @@ public class EarthquakeGroup
 
         Collections.sort(this.al, new distSorter());
 
-        // TODO remove duplicate Earthquake from group
+
     }
 
+    // Function to remove duplicates from an ArrayList
+    public void removeDuplicates() {
 
+        int count = 1;
+        // Create a new ArrayList
+        ArrayList<Earthquake> newearth = new ArrayList<>();
+
+        // Traverse through the first list
+        for (int i = 0; i<al.size();i++){
+            for (int j = 0 ; j<al.size(); j++){
+                if(i!=j && al.get(i).getLat() == al.get(j).getLat()
+                && al.get(i).getLon() == al.get(j).getLon()){
+                    count++;
+                    //test
+                    System.out.println("duplicate " + al.get(i).getTitle()
+                            + "lat = " + al.get(i).getLat() + "lon = " +
+                            al.get(i).getLon());
+                }
+            }
+
+            if(count==3){
+                newearth.add(al.get(i));
+                count = 1;
+            }
+
+        }
+
+        al = newearth;
+
+        // return the new list
+        //return newearth;
+
+    }
 }

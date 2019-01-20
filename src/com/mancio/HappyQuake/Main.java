@@ -50,6 +50,11 @@ public class Main {
 
         JSONReader jr = new JSONReader(c, slat, slon);
 
+        //jr.removeDuplicates(jr.order(jr.read());
+
+        jr.print(jr.removeDuplicates(jr.order(jr.read())), 10);
+
+        System.out.println("---------------");
 
         jr.print(jr.order(jr.read()), 10);
 

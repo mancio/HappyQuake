@@ -103,6 +103,12 @@ public class JSONReader {
 
     }
 
+    public EarthquakeGroup removeDuplicates(EarthquakeGroup eqg){
+
+        eqg.removeDuplicates();
+        return eqg;
+    }
+
     /**
      * print the title and distance in km
      * ex. title || distance (km)
