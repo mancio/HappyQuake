@@ -59,7 +59,7 @@ public class EarthquakeGroup
 
         Collections.sort(this.al, new distSorter());
 
-        // TODO remove double Earthquake from group
+        // TODO remove duplicate Earthquake from group
     }
 
 
