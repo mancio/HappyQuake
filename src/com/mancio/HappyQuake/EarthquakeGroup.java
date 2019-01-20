@@ -69,6 +69,8 @@ public class EarthquakeGroup
         // Create a new ArrayList
         ArrayList<Earthquake> newearth = new ArrayList<>();
 
+        // TODO round to 1 or two decimal latitude and longitude
+
         // Traverse through the first list
         for (int i = 0; i<al.size();i++){
             for (int j = 0 ; j<al.size(); j++){
@@ -82,10 +84,12 @@ public class EarthquakeGroup
                 }
             }
 
-            if(count==3){
+            if(count==1){
                 newearth.add(al.get(i));
-                count = 1;
+
             }
+
+            count = 1;
 
         }
 
