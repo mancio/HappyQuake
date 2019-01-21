@@ -53,11 +53,11 @@ public class Main {
         //jr.removeDuplicates(jr.order(jr.read());
 
 
-        jr.print(jr.order(jr.read()), 10);
+        //jr.print(jr.order(jr.read()), 10);
 
         System.out.println("---------------");
 
-        jr.print(jr.order(jr.removeDuplicates(jr.read())), 10);
+        jr.print(jr.removeDuplicates(jr.order(jr.read())), 10);
 
         System.out.println("---------------");
 

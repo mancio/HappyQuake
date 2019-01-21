@@ -119,10 +119,12 @@ public class JSONReader {
      */
     public void print(EarthquakeGroup eqg, int num){
 
-        for (int i = 0; i < num; i++){
+        for (int i = 0; i < num && i < eqg.size(); i++){
+
 
             System.out.println(eqg.getEQ(i).getTitle() + " || " + (int) eqg.getEQ(i).getDist()
-                                + "lat = " + eqg.getEQ(i).getLat() + " lon = " + eqg.getEQ(i).getLon());
+                        /*+ "lat = " + eqg.getEQ(i).getLat() + " lon = " + eqg.getEQ(i).getLon()*/);
+
         }
 
     }

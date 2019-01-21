@@ -51,6 +51,11 @@ public class EarthquakeGroup
         return(this.al.get(i));
     }
 
+    public int size(){
+
+        return (this.al.size());
+    }
+
 
     /**
      * Sort the ArrayList<Earthquake> from the smaller distance from the bigger
@@ -65,26 +70,24 @@ public class EarthquakeGroup
     // Function to remove duplicates from an ArrayList
     public void removeDuplicates() {
 
-        int count = 1;
+
         // Create a new ArrayList
-        ArrayList<Earthquake> newearth = new ArrayList<>();
-
-        // TODO round to 1 or two decimal latitude and longitude
+        //ArrayList<Earthquake> newearth = new ArrayList<>();
 
 
 
-        // Traverse through the first list
+
         for (int i = 0; i<al.size();i++){
-            for (int j = 0 ; j<al.size(); j++){
+            for (int j = i + 1; j<al.size(); j++){
 
                 //double lati = Math.floor(al.get(i).getLat() * 10) / 10;
-                double lati = Math.floor(al.get(i).getLat() * 100) / 100;
-                double latj = Math.floor(al.get(j).getLat() * 100) / 100;
-                double loni = Math.floor(al.get(i).getLon() * 100) / 100;
-                double lonj = Math.floor(al.get(j).getLon() * 100) / 100;
+                double lati = Math.floor(al.get(i).getLat() * 10) / 10;
+                double latj = Math.floor(al.get(j).getLat() * 10) / 10;
+                double loni = Math.floor(al.get(i).getLon() * 10) / 10;
+                double lonj = Math.floor(al.get(j).getLon() * 10) / 10;
 
-                if(i!=j && lati == latj && loni == lonj){
-                    count++;
+                if(lati == latj && loni == lonj){
+                    al.remove(j);
                     //test
                     /*System.out.println("duplicate " + al.get(i).getTitle()
                             + "lat = " + al.get(i).getLat() + "lon = " +
@@ -92,19 +95,17 @@ public class EarthquakeGroup
                 }
             }
 
-            if(count==1){
-                newearth.add(al.get(i));
-
-            }
-
-            count = 1;
-
         }
 
-        al = newearth;
+
+
+
+        //al = newearth;
 
         // return the new list
         //return newearth;
 
     }
+
+
 }
