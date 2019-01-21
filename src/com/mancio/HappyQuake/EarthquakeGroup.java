@@ -30,7 +30,7 @@ public class EarthquakeGroup
     /**
      * This methods adds an object of type Earthquake to the EarthquakeGroup.
      *
-     * @param  eq  an object of type Earthquake
+     * @param eq  an object of type Earthquake
      */
     public void add(Earthquake eq)
     {
@@ -42,8 +42,8 @@ public class EarthquakeGroup
      * This method returns an object of type Earthquake at a specific position "i" (index)
      * in the "al" ArrayList, which contains the object of type Earthquake.
      *
-     * @param  i  index of Earthquake
-     * @return  eq  Earthquake
+     * @param i  index of Earthquake
+     * @return eq  Earthquake
      */
     public Earthquake getEQ(int i)
     {
@@ -51,6 +51,11 @@ public class EarthquakeGroup
         return(this.al.get(i));
     }
 
+    /**
+     * Get the size of Earthquake ArrayList
+     *
+     * @return int
+     */
     public int size(){
 
         return (this.al.size());
@@ -67,14 +72,11 @@ public class EarthquakeGroup
 
     }
 
-    // Function to remove duplicates from an ArrayList
+
+    /**
+     * Remove al elements with similar coordinates
+     */
     public void removeDuplicates() {
-
-
-        // Create a new ArrayList
-        //ArrayList<Earthquake> newearth = new ArrayList<>();
-
-
 
 
         for (int i = 0; i<al.size();i++){
@@ -97,13 +99,6 @@ public class EarthquakeGroup
 
         }
 
-
-
-
-        //al = newearth;
-
-        // return the new list
-        //return newearth;
 
     }
 

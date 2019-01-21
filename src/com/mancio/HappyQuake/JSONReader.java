@@ -103,6 +103,12 @@ public class JSONReader {
 
     }
 
+    /**
+     * Remove all the EarthquakeGroup element with similar coordinates
+     *
+     * @param eqg EarthquakeGroup object
+     * @return EarthquakeGroup object without duplicates
+     */
     public EarthquakeGroup removeDuplicates(EarthquakeGroup eqg){
 
         eqg.removeDuplicates();

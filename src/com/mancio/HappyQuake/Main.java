@@ -21,6 +21,7 @@ public class Main {
 
         double ok;
 
+        // check if the input is a valid latitude number
         do{
             ok = Calc.validcord(s,"lat");
             s.nextLine();
@@ -30,6 +31,7 @@ public class Main {
 
         System.out.println("Please insert longitude of a city");
 
+        // check if the input is a valid longitude number
         do{
             ok = Calc.validcord(s,"lon");
             s.nextLine();
@@ -48,15 +50,13 @@ public class Main {
         // establish connection to the GEO link and download data
         URLReader c = new URLReader("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson");
 
+        // parse the file with GEOJason data
         JSONReader jr = new JSONReader(c, slat, slon);
 
-        //jr.removeDuplicates(jr.order(jr.read());
-
-
-        //jr.print(jr.order(jr.read()), 10);
 
         System.out.println("---------------");
 
+        // print "title || distance in km" of the al list without duplicates.
         jr.print(jr.removeDuplicates(jr.order(jr.read())), 10);
 
         System.out.println("---------------");
