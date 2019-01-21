@@ -71,16 +71,24 @@ public class EarthquakeGroup
 
         // TODO round to 1 or two decimal latitude and longitude
 
+
+
         // Traverse through the first list
         for (int i = 0; i<al.size();i++){
             for (int j = 0 ; j<al.size(); j++){
-                if(i!=j && al.get(i).getLat() == al.get(j).getLat()
-                && al.get(i).getLon() == al.get(j).getLon()){
+
+                //double lati = Math.floor(al.get(i).getLat() * 10) / 10;
+                double lati = Math.floor(al.get(i).getLat() * 100) / 100;
+                double latj = Math.floor(al.get(j).getLat() * 100) / 100;
+                double loni = Math.floor(al.get(i).getLon() * 100) / 100;
+                double lonj = Math.floor(al.get(j).getLon() * 100) / 100;
+
+                if(i!=j && lati == latj && loni == lonj){
                     count++;
                     //test
-                    System.out.println("duplicate " + al.get(i).getTitle()
+                    /*System.out.println("duplicate " + al.get(i).getTitle()
                             + "lat = " + al.get(i).getLat() + "lon = " +
-                            al.get(i).getLon());
+                            al.get(i).getLon());*/
                 }
             }
 
